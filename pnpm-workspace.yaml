@@ -1,0 +1,13 @@
+# Single-package repo: no workspace members, this file carries pnpm settings only.
+
+# pnpm 10+ blocks any dependency shipping an install/build script until it is
+# explicitly reviewed here (strictDepBuilds: an unlisted script is a hard install
+# error). We deny by default and only allow scripts we need.
+allowBuilds:
+  # The tree-sitter grammars ship `node-gyp-build` install scripts for their
+  # NATIVE bindings. src/parse/loader.ts is deliberately WASM-only: it reads the
+  # `.wasm` files shipped in the same packages, which need no build step and are
+  # independent of the Node ABI. Denying the scripts is the intended state, not
+  # a workaround — install still succeeds and the grammars still load.
+  tree-sitter-typescript: false
+  tree-sitter-javascript: false

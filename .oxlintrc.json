@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc"],
+  "env": { "es2024": true, "node": true },
+  "categories": { "correctness": "error" },
+  "rules": {
+    "no-duplicate-imports": "error",
+    "max-lines": ["warn", { "max": 500, "skipBlankLines": true, "skipComments": true }]
+  },
+  "overrides": [
+    {
+      "files": ["tests/**"],
+      "rules": { "max-lines": "off" }
+    }
+  ],
+  "ignorePatterns": ["lib/**", "node_modules/**", "tests/fixtures/**"]
+}

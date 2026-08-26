@@ -1,0 +1,9 @@
+node_modules/
+lib/
+*.db
+*.db-wal
+*.db-shm
+smoke.mjs
+prof*.mjs
+probe*.mjs
+q.mjs

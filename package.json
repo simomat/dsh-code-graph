@@ -1,0 +1,99 @@
+{
+  "name": "dsh-code-graph",
+  "version": "1.0.0",
+  "description": "Structural code index for the DeepSeek Harness: cheap graph-backed code exploration instead of read/grep/glob loops",
+  "license": "MIT",
+  "author": "Matthias Simon",
+  "homepage": "https://github.com/simomat/dsh-code-graph#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simomat/dsh-code-graph.git"
+  },
+  "bugs": {
+    "url": "https://github.com/simomat/dsh-code-graph/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "cordis",
+    "tree-sitter",
+    "code-graph",
+    "static-analysis",
+    "code-search",
+    "agent-tools"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "engines": {
+    "node": ">=26.0.0"
+  },
+  "packageManager": "pnpm@11.22.0",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "types": "./lib/types/client/index.d.ts",
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/**/*.js",
+    "lib/**/*.js.map",
+    "lib/**/*.d.ts",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-settings-plugins",
+        "@deepseek-ai/dsh-client-ui-tool"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.client.json && tsdown",
+    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig.client.json && tsdown",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.client.json --noEmit",
+    "lint": "oxlint src tests",
+    "test": "oxlint src tests && node --test 'tests/**/*.test.mjs'"
+  },
+  "dependencies": {
+    "@lumis-sh/wasm-go": "^0.26.2",
+    "@lumis-sh/wasm-java": "^0.26.2",
+    "@lumis-sh/wasm-rust": "^0.26.4",
+    "tree-sitter-typescript": "^0.23.2",
+    "web-tree-sitter": "^0.26.12"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-settings": "^0.1.1-rc.2",
+    "@deepseek-ai/dsh-tools": "^0.1.1-rc.2",
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-client-runtime": "^0.1.1-rc.2",
+    "@deepseek-ai/dsh-client-ui-primitives": "^0.1.1-rc.2",
+    "@deepseek-ai/dsh-client-ui-settings": "^0.1.1-rc.2",
+    "@deepseek-ai/dsh-client-ui-settings-plugins": "^0.1.1-rc.2",
+    "@deepseek-ai/dsh-client-ui-slots": "^0.1.1-rc.2",
+    "@deepseek-ai/dsh-client-ui-tool": "^0.1.1-rc.2",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "oxlint": "1.80.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tsdown": "^0.22.14",
+    "typescript": "^5.7.0"
+  }
+}

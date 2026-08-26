@@ -1,0 +1,79 @@
+name: Bug report
+description: Something the plugin does that it should not, or does not do that it should.
+labels: [bug]
+body:
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Which surface
+      description: Where the problem shows up.
+      options:
+        - code_overview
+        - code_find
+        - code_relations
+        - code_impact
+        - Indexer / build (wrong or missing nodes and edges)
+        - Settings and configuration
+        - Web UI (settings card or tool rows)
+        - Something else / not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you called, what came back, and what you expected instead.
+      placeholder: |
+        Called code_relations with pattern=callers_of, symbol=... on repo ...
+        Got: an empty result.
+        Expected: the three call sites in src/foo.ts.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: If the repository you indexed is public, a link to it helps most.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: languages
+    attributes:
+      label: Language of the indexed code
+      multiple: true
+      options:
+        - TypeScript / JavaScript (incl. TSX/JSX)
+        - Java
+        - Go
+        - Rust
+        - Not language-specific
+    validations:
+      required: true
+
+  - type: input
+    id: node
+    attributes:
+      label: Node version
+      description: Output of `node --version`. Must be >= 26.
+      placeholder: v26.7.0
+    validations:
+      required: true
+
+  - type: input
+    id: versions
+    attributes:
+      label: Harness and plugin version
+      description: The dsh version, and the dsh-code-graph version or commit you have installed.
+      placeholder: dsh 0.1.1-rc.2, dsh-code-graph @ 864cb2b
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Any harness output around the failure. Rendered as code, no backticks needed.
+      render: text

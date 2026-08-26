@@ -1,0 +1,5 @@
+# Bundle layer contributed by dsh-code-graph.
+# Registers the code-graph tools into the composing profile's tool registry.
+- insert:
+    - id: code-graph
+      name: dsh-code-graph
