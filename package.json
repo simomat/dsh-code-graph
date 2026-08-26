@@ -94,6 +94,6 @@
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "tsdown": "^0.22.14",
-    "typescript": "^5.7.0"
+    "typescript": "^7.0.2"
   }
 }
