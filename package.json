@@ -72,7 +72,7 @@
     "@lumis-sh/wasm-java": "^0.26.2",
     "@lumis-sh/wasm-rust": "^0.26.4",
     "tree-sitter-typescript": "^0.23.2",
-    "web-tree-sitter": "^0.26.12"
+    "web-tree-sitter": "^0.26.13"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.0.1",
