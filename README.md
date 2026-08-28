@@ -117,6 +117,20 @@ The browser half is only found when the harness can resolve this package **by na
 profile directory, which the development `--patch` recipe above does not do (it names a path to
 `lib/index.js`). Install into a profile to see it.
 
+## Measurements
+
+With the testing harness, one `code_graph` call could answer the questions for a
+**median of 18.1× fewer tokens** than grepping and reading the top three matching files, measured
+over 30 questions on six repositories. Results to budget: every result is capped, **56% of answers
+hit the default cap**, and the median falls to 12.7× at `maxBudget` — so part of the saving is the
+answer being cut off rather than the graph being efficient. The steadier number is the tool surface
+itself, at **1,091 tokens per session against 7,307** for the 30-tool reference, a fixed cost paid
+before any work happens.
+
+**[bench/RESULTS.md](bench/RESULTS.md)** has the full tables, the caveats, and what the run does not
+show. **[bench/README.md](bench/README.md)** is the harness itself: reproduction recipe, determinism
+guarantees, and the `chars / 4` calibration. Run it with `pnpm run bench`.
+
 ## Development
 
 ```sh
@@ -130,17 +144,14 @@ set as errors, plus `no-duplicate-imports` and a `max-lines` warning at 500 code
 and comments excluded) so a module that has outgrown its name says so before the next language
 lands. Warnings do not fail the run; errors do. `pnpm run lint` runs it alone.
 
-Tests live under `tests/`, organised by subsystem (`index`, `query`, `languages`, `client`) with
-shared fixtures in `tests/helpers/`. **[CONTRIBUTING.md](CONTRIBUTING.md)** has the longer version,
+Tests live under `tests/`, organised by subsystem (`index`, `query`, `languages`, `client`, `bench`)
+with shared fixtures in `tests/helpers/`. The benchmark harness behind
+[Measurements](#measurements) is `bench/`, run with `pnpm run bench`; its dependencies are
+devDependencies and the plugin's runtime dependency set does not grow. **[CONTRIBUTING.md](CONTRIBUTING.md)** has the longer version,
 including what adding a language takes.
 
 ## Future work
 
-- **Measurements.** The benchmark numbers this README used to carry (full build time, database
-  size, node/edge counts, warm `code_find` and `code_overview` latency, share of CALLS resolved,
-  typical result size in tokens) were dropped rather than left to rot. They come back once there is
-  a reproducible harness for them: a named reference repository, a pinned Node version, and a
-  script that produces the table, so a regression is visible rather than anecdotal.
 - **More languages.** Query packs make a new language a wasm grammar plus a query file with
   `@definition.*` / `@call` / `@heritage.*` captures, plus a `noiseMethods` list — Python, C# and
   C++ are the obvious next candidates. See [Design.md](Design.md#parsing).

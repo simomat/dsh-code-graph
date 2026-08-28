@@ -1,0 +1,58 @@
+name: Bench
+
+# Weekly and on demand. Never on push or pull_request: a full run clones five
+# reference repositories, and the numbers are a report rather than a gate.
+on:
+  schedule:
+    # Mondays, 04:17 UTC. Off the hour because GitHub's scheduler queues
+    # on-the-hour jobs hardest.
+    - cron: '17 4 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Unlike ci.yml this is not keyed on the ref: there is one weekly run, not one
+# per branch. And a run in progress is left alone — cancelling it would waste
+# the clone it has already paid for and produce no report at all.
+concurrency:
+  group: bench
+  cancel-in-progress: false
+
+jobs:
+  bench:
+    name: token benchmark
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Reads the pnpm version from package.json's `packageManager` field.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # `engines` demands >= 26 for stable node:sqlite and type stripping.
+          node-version: '26'
+          cache: pnpm
+
+      # --ignore-scripts because the root `prepare` script is a full build:
+      # without it, a build failure would be reported against the install step.
+      - name: Install
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      # The bench modules import src/*.ts directly, so nothing is built here.
+      # Scenario tool-schema-overhead reads the committed snapshot under
+      # bench/fixtures/, so this job needs no uvx and no PyPI.
+      #
+      # Report-only: `|| true` keeps a regression from failing the workflow.
+      # There is no baseline to regress against yet, and a red run nobody
+      # subscribed to is how a weekly report gets muted.
+      - name: Benchmark
+        run: pnpm run bench -- --calibrate | tee "$GITHUB_STEP_SUMMARY" || true
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bench-results
+          path: bench/results/**
+          if-no-files-found: error

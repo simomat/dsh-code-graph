@@ -1,0 +1,11 @@
+run_id,date,scenario,repo,repo_sha,question_id,tool,budget_limit,status,error,baseline_kind,baseline_tokens,graph_tokens,ratio,truncated,truncation_cause,returned_rows,total_rows,dropped_rows,estimated,real_tokens,est_real_ratio,files,nodes,edges,call_resolution,db_bytes,node_version,elapsed_ms
+2026-08-27T04-18-58-915Z,2026-08-27,workflow-cost,self,7443f0dab41fc862cea49a737c2126b044de6ebd,self-locate-and-scope#1-code_overview,code_overview,1500,ok,,,,779,,true,budget,28,,,true,910,0.856,,,,,,26.7.0,2.583
+2026-08-27T04-18-58-915Z,2026-08-27,workflow-cost,self,7443f0dab41fc862cea49a737c2126b044de6ebd,self-locate-and-scope#2-code_find,code_find,1500,ok,,,,109,,false,none,1,1,0,true,138,0.79,,,,,,26.7.0,0.242
+2026-08-27T04-18-58-915Z,2026-08-27,workflow-cost,self,7443f0dab41fc862cea49a737c2126b044de6ebd,self-locate-and-scope#3-code_relations,code_relations,1500,ok,,,,418,,false,none,8,8,0,true,486,0.86,,,,,,26.7.0,0.23
+2026-08-27T04-18-58-915Z,2026-08-27,workflow-cost,self,7443f0dab41fc862cea49a737c2126b044de6ebd,self-locate-and-scope#4-code_impact,code_impact,1500,ok,,,,1274,,false,none,29,29,0,true,1412,0.902,,,,,,26.7.0,0.516
+2026-08-27T04-18-58-915Z,2026-08-27,workflow-cost,self,7443f0dab41fc862cea49a737c2126b044de6ebd,self-locate-and-scope#total,workflow,1500,ok,,,,2580,,,,4,,,true,2946,0.876,,,,,,26.7.0,3.571
+2026-08-27T04-18-58-915Z,2026-08-27,workflow-cost,self,7443f0dab41fc862cea49a737c2126b044de6ebd,self-locate-and-scope#1-code_overview,code_overview,6000,ok,,,,852,,false,unknown,30,,,true,991,0.86,,,,,,26.7.0,2.521
+2026-08-27T04-18-58-915Z,2026-08-27,workflow-cost,self,7443f0dab41fc862cea49a737c2126b044de6ebd,self-locate-and-scope#2-code_find,code_find,6000,ok,,,,109,,false,none,1,1,0,true,138,0.79,,,,,,26.7.0,0.231
+2026-08-27T04-18-58-915Z,2026-08-27,workflow-cost,self,7443f0dab41fc862cea49a737c2126b044de6ebd,self-locate-and-scope#3-code_relations,code_relations,6000,ok,,,,418,,false,none,8,8,0,true,486,0.86,,,,,,26.7.0,0.223
+2026-08-27T04-18-58-915Z,2026-08-27,workflow-cost,self,7443f0dab41fc862cea49a737c2126b044de6ebd,self-locate-and-scope#4-code_impact,code_impact,6000,ok,,,,1274,,false,none,29,29,0,true,1412,0.902,,,,,,26.7.0,0.522
+2026-08-27T04-18-58-915Z,2026-08-27,workflow-cost,self,7443f0dab41fc862cea49a737c2126b044de6ebd,self-locate-and-scope#total,workflow,6000,ok,,,,2653,,,,4,,,true,3027,0.876,,,,,,26.7.0,3.497

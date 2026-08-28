@@ -1,0 +1,58 @@
+{
+  "runId": "2026-08-27T04-18-58-915Z",
+  "date": "2026-08-27",
+  "node": {
+    "version": "26.7.0",
+    "pinned": "26.7.0",
+    "matchesPin": true
+  },
+  "platform": "linux x64",
+  "cpus": 22,
+  "tokenizer": "gpt-tokenizer cl100k_base (plus chars/4 estimate)",
+  "budgets": {
+    "defaultBudget": 1500,
+    "maxBudget": 6000
+  },
+  "filters": {
+    "scenarios": null,
+    "repos": null
+  },
+  "repos": [
+    {
+      "name": "express",
+      "sha": "dbac741a49a5a64336b70c06e85c2e2706e36336",
+      "tag": "v5.2.1",
+      "lang": "javascript"
+    },
+    {
+      "name": "hono",
+      "sha": "06880c4a2b04de9dd74217f26dd831209b9c01f1",
+      "tag": "v4.13.5",
+      "lang": "typescript"
+    },
+    {
+      "name": "gin",
+      "sha": "b5af7796535d97d9c7af42539af01d787fcb3b4d",
+      "tag": "v1.10.1",
+      "lang": "go"
+    },
+    {
+      "name": "gson",
+      "sha": "3ff35d6269894901ab8006258395aafc4b9765cd",
+      "tag": "gson-parent-2.14.0",
+      "lang": "java"
+    },
+    {
+      "name": "ripgrep",
+      "sha": "4649aa9700619f94cf9c66876e9549d83420e16c",
+      "tag": "14.1.1",
+      "lang": "rust"
+    },
+    {
+      "name": "self",
+      "sha": "7443f0dab41fc862cea49a737c2126b044de6ebd",
+      "tag": null,
+      "lang": "typescript"
+    }
+  ]
+}

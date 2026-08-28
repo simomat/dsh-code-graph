@@ -1,0 +1,6 @@
+run_id,date,scenario,repo,repo_sha,question_id,tool,budget_limit,status,error,baseline_kind,baseline_tokens,graph_tokens,ratio,truncated,truncation_cause,returned_rows,total_rows,dropped_rows,estimated,real_tokens,est_real_ratio,files,nodes,edges,call_resolution,db_bytes,node_version,elapsed_ms
+2026-08-27T04-18-58-915Z,2026-08-27,index-profile,gson,3ff35d6269894901ab8006258395aafc4b9765cd,cold-build,fullBuild,,ok,,,,,,,,,,,true,,,262,4398,28473,,30949376,26.7.0,721
+2026-08-27T04-18-58-915Z,2026-08-27,index-profile,gson,3ff35d6269894901ab8006258395aafc4b9765cd,warm-code_overview,code_overview,1500,ok,,,,730,,,,,,,true,815,0.896,,,,0.64,,26.7.0,30.931
+2026-08-27T04-18-58-915Z,2026-08-27,index-profile,gson,3ff35d6269894901ab8006258395aafc4b9765cd,warm-code_find,code_find,1500,ok,,,,1458,,,,,,,true,1574,0.926,,,,,,26.7.0,0.76
+2026-08-27T04-18-58-915Z,2026-08-27,index-profile,gson,3ff35d6269894901ab8006258395aafc4b9765cd,warm-code_overview,code_overview,6000,ok,,,,1064,,,,,,,true,1171,0.909,,,,0.64,,26.7.0,27.497
+2026-08-27T04-18-58-915Z,2026-08-27,index-profile,gson,3ff35d6269894901ab8006258395aafc4b9765cd,warm-code_find,code_find,6000,ok,,,,3338,,,,,,,true,3530,0.946,,,,,,26.7.0,0.771

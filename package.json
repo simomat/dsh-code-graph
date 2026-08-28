@@ -64,8 +64,9 @@
     "build": "tsc -p tsconfig.json && tsc -p tsconfig.client.json && tsdown",
     "prepare": "tsc -p tsconfig.json && tsc -p tsconfig.client.json && tsdown",
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.client.json --noEmit",
-    "lint": "oxlint src tests",
-    "test": "oxlint src tests && node --test 'tests/**/*.test.mjs'"
+    "lint": "oxlint src tests bench",
+    "test": "oxlint src tests bench && node --test 'tests/**/*.test.mjs'",
+    "bench": "node bench/run.mjs"
   },
   "dependencies": {
     "@lumis-sh/wasm-go": "^0.26.2",
@@ -90,6 +91,7 @@
     "@types/node": "^26.2.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",
+    "gpt-tokenizer": "^4.0.0",
     "oxlint": "1.80.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",

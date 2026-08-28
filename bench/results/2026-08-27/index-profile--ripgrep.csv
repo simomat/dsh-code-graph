@@ -1,0 +1,6 @@
+run_id,date,scenario,repo,repo_sha,question_id,tool,budget_limit,status,error,baseline_kind,baseline_tokens,graph_tokens,ratio,truncated,truncation_cause,returned_rows,total_rows,dropped_rows,estimated,real_tokens,est_real_ratio,files,nodes,edges,call_resolution,db_bytes,node_version,elapsed_ms
+2026-08-27T04-18-58-915Z,2026-08-27,index-profile,ripgrep,4649aa9700619f94cf9c66876e9549d83420e16c,cold-build,fullBuild,,ok,,,,,,,,,,,true,,,98,3238,10205,,6529024,26.7.0,471
+2026-08-27T04-18-58-915Z,2026-08-27,index-profile,ripgrep,4649aa9700619f94cf9c66876e9549d83420e16c,warm-code_overview,code_overview,1500,ok,,,,780,,,,,,,true,919,0.849,,,,0.96,,26.7.0,9.785
+2026-08-27T04-18-58-915Z,2026-08-27,index-profile,ripgrep,4649aa9700619f94cf9c66876e9549d83420e16c,warm-code_find,code_find,1500,ok,,,,1063,,,,,,,true,1277,0.832,,,,,,26.7.0,0.253
+2026-08-27T04-18-58-915Z,2026-08-27,index-profile,ripgrep,4649aa9700619f94cf9c66876e9549d83420e16c,warm-code_overview,code_overview,6000,ok,,,,929,,,,,,,true,1099,0.845,,,,0.96,,26.7.0,9.762
+2026-08-27T04-18-58-915Z,2026-08-27,index-profile,ripgrep,4649aa9700619f94cf9c66876e9549d83420e16c,warm-code_find,code_find,6000,ok,,,,1063,,,,,,,true,1277,0.832,,,,,,26.7.0,0.252

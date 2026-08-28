@@ -7,3 +7,7 @@ smoke.mjs
 prof*.mjs
 probe*.mjs
 q.mjs
+
+# Cached reference clones for the benchmark harness. Reused across runs after a
+# SHA check; the results under bench/results/ are committed, these are not.
+bench/.repos/

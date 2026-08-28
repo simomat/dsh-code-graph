@@ -35,7 +35,8 @@ installs with `--ignore-scripts` and builds as a separate step so failures stay 
 | `tests/query/` | Budgeting, resolution, traversal, overview, limits |
 | `tests/languages/` | One suite per language, asserting extraction against a fixture repository |
 | `tests/client/` | The browser half's settings form and tool-row models |
-| `tests/config.test.mjs`, `tests/tools.test.mjs` | Settings composition, tool argument guards |
+| `tests/bench/` | The benchmark harness: token counting, grep ranking, truncation recording, error exclusion |
+| `tests/config.test.mjs`, `tests/tools.test.mjs` | Settings composition, tool specs and argument guards |
 
 Shared machinery lives in `tests/helpers/`: `fixture.mjs` (a temp repository plus the graph built
 over it), `git.mjs`, `manager.mjs`, `repo.mjs` (the shared TypeScript repository the freshness
@@ -51,9 +52,21 @@ Run one suite while iterating:
 node --test tests/languages/go.test.mjs
 ```
 
+## Benchmarks
+
+`pnpm run bench` produces the numbers in the README's Measurements section. It clones five pinned
+reference repositories, builds a fresh index over each, and writes CSVs under `bench/results/`.
+**[bench/README.md](bench/README.md)** is the reproduction recipe — read it before changing a
+question, a pinned SHA or the token counter, since any of the three moves every number.
+
+Two rules there are not negotiable, because breaking either turns a failure into an apparent win:
+a thrown tool call is recorded with `status=error` and excluded from every aggregate, and no ratio
+is printed without the budget that bounded it in the same table.
+
 ## Lint
 
-`pnpm run lint` is oxlint with `.oxlintrc.json`: the `correctness` category as errors, plus
+`pnpm run lint` is oxlint with `.oxlintrc.json` over `src`, `tests` and `bench`: the `correctness`
+category as errors, plus
 `no-duplicate-imports`, plus a `max-lines` **warning** at 500 code lines (blank lines and comments
 excluded, and off for `tests/**`). Warnings do not fail the run; errors do. The line limit is a
 smell detector, not a rule — a module that outgrows its name should say so before the next language
