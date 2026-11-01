@@ -69,11 +69,11 @@
     "bench": "node bench/run.mjs"
   },
   "dependencies": {
-    "@lumis-sh/wasm-go": "^0.26.2",
-    "@lumis-sh/wasm-java": "^0.26.2",
-    "@lumis-sh/wasm-rust": "^0.26.4",
+    "@lumis-sh/wasm-go": "^0.26.4",
+    "@lumis-sh/wasm-java": "^0.26.3",
+    "@lumis-sh/wasm-rust": "^0.26.5",
     "tree-sitter-typescript": "^0.23.2",
-    "web-tree-sitter": "^0.26.13"
+    "web-tree-sitter": "^0.27.1"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.0.1",
@@ -83,19 +83,19 @@
   },
   "devDependencies": {
     "@deepseek-ai/dsh-client-runtime": "^0.1.1-rc.2",
-    "@deepseek-ai/dsh-client-ui-primitives": "^0.1.1-rc.2",
-    "@deepseek-ai/dsh-client-ui-settings": "^0.1.1-rc.2",
-    "@deepseek-ai/dsh-client-ui-settings-plugins": "^0.1.1-rc.2",
-    "@deepseek-ai/dsh-client-ui-slots": "^0.1.1-rc.2",
-    "@deepseek-ai/dsh-client-ui-tool": "^0.1.1-rc.2",
-    "@types/node": "^26.2.0",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.5",
-    "gpt-tokenizer": "^4.0.0",
-    "oxlint": "1.80.0",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "tsdown": "^0.22.14",
+    "@deepseek-ai/dsh-client-ui-primitives": "^0.2.0-rc.2",
+    "@deepseek-ai/dsh-client-ui-settings": "^0.2.0-rc.2",
+    "@deepseek-ai/dsh-client-ui-settings-plugins": "^0.2.0-rc.2",
+    "@deepseek-ai/dsh-client-ui-slots": "^0.2.0-rc.2",
+    "@deepseek-ai/dsh-client-ui-tool": "^0.2.0-rc.2",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "gpt-tokenizer": "^4.1.0",
+    "oxlint": "1.90.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tsdown": "^0.23.4",
     "typescript": "^7.0.2"
   }
 }
